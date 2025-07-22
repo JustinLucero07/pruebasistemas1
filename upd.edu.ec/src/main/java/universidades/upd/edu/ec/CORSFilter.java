@@ -26,7 +26,7 @@ public class CORSFilter implements Filter{
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         // Establecer encabezados CORS
-        httpResponse.setHeader("Access-Control-Allow-Origin", "*"); // Permitir todos los orígenes
+        httpResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:4200"); // Permitir todos los orígenes
         httpResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         httpResponse.setHeader("Access-Control-Allow-Credentials", "true");

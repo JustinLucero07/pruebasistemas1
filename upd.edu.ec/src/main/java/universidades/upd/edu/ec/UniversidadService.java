@@ -8,11 +8,11 @@ import java.util.List;
 @Stateless
 
 public class UniversidadService {
-	@PersistenceContext(unitName = "jakarta-postgres-appPersistenceUnit")
+	@PersistenceContext(unitName = "upd.edu.ecPersistenceUnit")
     private EntityManager em;
 
     public List<Universidades> listar() {
-        return em.createQuery("SELECT p FROM Universidades p", Universidades.class).getResultList();
+        return em.createQuery("SELECT u FROM Universidades u", Universidades.class).getResultList();
     }
 
     public Universidades guardar(Universidades universidades) {
