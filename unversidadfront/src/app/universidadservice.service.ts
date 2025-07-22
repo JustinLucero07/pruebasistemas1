@@ -7,19 +7,27 @@ import { Observable } from 'rxjs';
 })
 export class UniversidadserviceService {
 
-  private apiUrl = '/api/personas'; 
+  private apiUrl = 'http://localhost:8080/upd.edu.ec/api/universidades'; 
 
   constructor(private http: HttpClient) {}
 
-  listarPersonas(): Observable<any[]> {
+  listarUniversidades(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  agregarPersona(persona: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+  crearUniversidad(universidad: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, universidad, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
+  }
 
-    return this.http.post(this.apiUrl, persona, { headers });
+  actualizarUniversidad(id: number, universidad: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, universidad, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
+
+  eliminarUniversidad(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

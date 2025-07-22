@@ -1,33 +1,26 @@
 <h2>Gestión de Universidades</h2>
 
-<form (submit)="agregarPersona()" style="max-width: 500px; margin: 0 auto;">
+<form (submit)="agregarUniversidad()" style="max-width: 500px; margin: 0 auto;">
   <div style="margin-bottom: 15px;">
     <label for="nombre" style="font-size: 1.2em; display: block;">Nombre:</label>
     <input id="nombre" [(ngModel)]="nuevaPersona.nombre" name="nombre" required style="width: 100%; padding: 8px; font-size: 1em;" />
   </div>
 
-  <div style="margin-bottom: 15px;">
-    <label for="edad" style="font-size: 1.2em; display: block;">Edad:</label>
-    <input id="edad" [(ngModel)]="nuevaPersona.edad" name="edad" required type="number" style="width: 100%; padding: 8px; font-size: 1em;" />
-  </div>
-
-  <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; font-size: 1.2em; cursor: pointer;">Agregar Persona</button>
+  <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; font-size: 1.2em; cursor: pointer;">Agregar Universidad</button>
 </form>
 
 <hr style="margin-top: 20px;">
 
-<h3>Lista de Personas</h3>
+<h3>Lista de Universidades</h3>
 <table style="width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #ddd;">
   <thead>
     <tr style="background-color: #f2f2f2;">
       <th style="padding: 10px; text-align: left; font-size: 1.1em;">Nombre</th>
-      <th style="padding: 10px; text-align: left; font-size: 1.1em;">Edad</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let persona of personas">
       <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ persona.nombre }}</td>
-      <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ persona.edad }} años</td>
     </tr>
   </tbody>
 </table>

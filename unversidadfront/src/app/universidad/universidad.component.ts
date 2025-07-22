@@ -12,25 +12,25 @@ import { FormsModule } from '@angular/forms';
 })
 export class UniversidadComponent {
  personas: any[] = [];
-  nuevaPersona = { nombre: '', edad: 0};
+  nuevaPersona = { nombre: ''};
 
   constructor(private universidads: UniversidadserviceService) {}
 
   ngOnInit(): void {
-    this.cargarPersonas();
+    this.cargarUniverisadd();
   }
 
-  cargarPersonas(): void {
-    this.universidads.listarPersonas().subscribe(data => {
+  cargarUniverisadd(): void {
+    this.universidads.listarUniversidades().subscribe(data => {
       this.personas = data;
     });
   }
 
-  agregarPersona(): void {
+  agregarUniversidad(): void {
     if (this.nuevaPersona.nombre) {
-      this.universidads.agregarPersona(this.nuevaPersona).subscribe(() => {
-        this.cargarPersonas(); 
-        this.nuevaPersona = { nombre: '', edad: 0}; 
+      this.universidads.crearUniversidad(this.nuevaPersona).subscribe(() => {
+        this.cargarUniverisadd(); 
+        this.nuevaPersona = { nombre: ''}; 
       });
     }
   }
